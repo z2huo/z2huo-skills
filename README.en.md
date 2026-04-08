@@ -1,36 +1,25 @@
 # z2huo-skills
 
 #### Description
-我的 Skills
 
-#### Software Architecture
-Software architecture description
+Personal Skills collection, focusing on code standards and best practices in AI Coding scenarios.
 
-#### Installation
+#### Skills List
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+| Skill | Description |
+| --- | --- |
+| [lombok-best-practices](lombok-best-practices/SKILL.md) | Lombok standardization practice for Java / Spring Boot projects |
 
-#### Instructions
+#### Directory Structure
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+```
+z2huo-skills/
+├── lombok-best-practices/
+│   └── SKILL.md          # Lombok best practices specification
+├── release/              # Packaged and released skill files
+└── README.md
+```
 
-#### Contribution
+#### Usage
 
-1.  Fork the repository
-2.  Create Feat_xxx branch
-3.  Commit your code
-4.  Create Pull Request
-
-
-#### Gitee Feature
-
-1.  You can use Readme\_XXX.md to support different languages, such as Readme\_en.md, Readme\_zh.md
-2.  Gitee blog [blog.gitee.com](https://blog.gitee.com)
-3.  Explore open source project [https://gitee.com/explore](https://gitee.com/explore)
-4.  The most valuable open source project [GVP](https://gitee.com/gvp)
-5.  The manual of Gitee [https://gitee.com/help](https://gitee.com/help)
-6.  The most popular members  [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+These Skills are compatible with development tools like Trae IDE that support the Skill mechanism. When relevant scenarios are detected, the corresponding Skill specification will be automatically triggered.
