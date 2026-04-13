@@ -1,29 +1,32 @@
 ---
 alwaysApply: false
-description: 需要使用 skill-creator 这个 skill 打包 Skill 为 .skill 文件时。或者不限制 skill-creator 这个 skill，只要是打包 Skill 的操作，并且也无论打包的 Skill 是否为 .skill 格式。
+description: 打包 Skill 时此规则生效
 ---
 
 # Skill 打包规则
 
-当需要打包 Skill 到 `.skill` 文件时，输出目录固定为当前项目下的 `release` 目录。
+打包 Skill 时此规则生效
 
-**打包命令示例**：
+## 打包 Skill
 
-```bash
-# 在该项目根目录下执行打包命令
-python -m scripts.package_skill <skill-path> ./release
-```
+打包时使用 `skill-creator` 这个 Skill。位置位于：
 
-**注意**：
+- 项目 Skill 目录：`.trae/skills/`
+- 全局 Skill 目录：`~/.trae/skills/`
 
-- `scripts` 目录位于 `~/.trae/skills/skill-creator/scripts/`
-- 打包后的 `.skill` 文件名自动采用 Skill 目录的名称
+不能使用其他位置的 Skill。
 
-**Skill 目录示例**：
+未经允许，不可以使用 `anthropic/skill-creator/` 目录下的 Skill 打包其他 Skill 和自己。但是打包 `anthropic/skill-creator/` 是可以的，即不能自己打包自己。
 
-本项目的两个 Skill 存放在以下目录：
+## Skill 输出目录
 
-| Skill 名称 | 路径 |
-| --- | --- |
-| markdown-generate-format | `markdown-generate-format/` |
-| lombok-best-practices | `lombok-best-practices/` |
+当需要打包 Skill 到 `.skill` 文件时，输出文件到当前项目下的 `release/` 目录。
+
+- 如果 `release/` 目录不存在，自动创建。
+- 如果 `release/` 目录中已经存在相同名称的 `.skill` 文件，自动覆盖。
+
+如果在打包过程中使用了打包脚本：
+
+- 打包脚本中不支持指定输出目录，请使用脚本输出 skill 之后，将输出的 skill 文件移动或复制到该项目下的 `release/` 目录中。
+- 打包脚本支持指定输出目录，请在脚本中指定输出目录为 `release/`。
+
