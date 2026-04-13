@@ -1,6 +1,6 @@
 ---
 name: obsidian-markdown
-description: 使用 Obsidian 特定语法创建和编辑 Obsidian 风格的 Markdown。适用于在 Obsidian 中处理 .md 类型的文件，或用户提及 Obsidian 中的各种类型的笔记、文件时。
+description: 使用 Obsidian 特定语法创建和编辑 Obsidian 风格的 Markdown。适用于在 Obsidian 中处理 Markdown 类型的文件，或用户提及 Obsidian 中的各种类型的笔记、文件时。
 ---
 
 # Obsidian 风格 Markdown 技能
@@ -90,6 +90,8 @@ keywords:
 ```
 
 所有属性类型、标签语法规则和高级用法请参阅 [PROPERTIES.md](references/PROPERTIES.md)。
+
+属性中的 `date` 和 `updated` 格式为 `YYYY-MM-DD HH:MM:SS`，要包括年月日时分秒。
 
 ## 后置内容
 
