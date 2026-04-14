@@ -5,7 +5,7 @@ description: "Java / Spring Boot 项目的 Lombok 规范化实践。用户提到
 
 # Lombok Best Practices
 
-## Skill 目标
+## 一、Skill 目标
 
 在 Java / Spring Boot 项目中统一 Lombok 使用方式，重点覆盖：
 
@@ -15,21 +15,21 @@ description: "Java / Spring Boot 项目的 Lombok 规范化实践。用户提到
 - 对象风格：涉及 getter/setter 的对象默认使用 `@Accessors(chain = true)`，采用链式调用
 - 评审方式：发现并替换低可维护性的字段注入 `@Autowired`
 
-## 自动触发规则
+## 二、自动触发规则
 
 - 显式触发：用户明确提到 Lombok、`@Data`、`@NoArgsConstructor`、`@AllArgsConstructor`、`@RequiredArgsConstructor`、`@Autowired` 迁移。
 - 隐式触发：用户要求生成功能代码，即使未提及 Lombok，只要 `pom.xml` 中存在 Lombok 依赖，且任务包含创建或修改 BO/DO/DTO/VO/Req/Resp/Param 等 Pojo 类，就应主动应用本 skill。
 - 优先动作：在开始生成对象代码前，先检查 `pom.xml` 是否包含 Lombok 依赖，再决定对象注解和注入方式。
 
-## 执行步骤
+## 三、执行步骤
 
 1. 先识别类角色（BO/DO/DTO/VO/Req/Resp/Param 等 Pojo 类，或 Service/DAO/Controller 等组件类）。
-2. 根据“注解矩阵”给出推荐注解。
+2. 根据"注解矩阵"给出推荐注解。
 3. 若是 Spring 组件，优先改为构造器注入模式。
-4. 输出变更时必须给出“改动建议 + 风险说明 + 示例代码”。
+4. 输出变更时必须给出"改动建议 + 风险说明 + 示例代码"。
 5. 如果存在争议场景（多实现注入、非 Spring 管理类），明确给出例外处理策略。
 
-## 注解矩阵
+## 四、注解矩阵
 
 | 类别 | 推荐注解 | 说明 |
 | --- | --- | --- |
@@ -41,20 +41,20 @@ description: "Java / Spring Boot 项目的 Lombok 规范化实践。用户提到
 | 业务组件类（Controller/Service/DAO/Listener） | `@Slf4j` | 需要记录业务流程、异常、外部调用时使用 |
 | Pojo 类（BO/DO/DTO/VO/Req/Resp/Param） | 不使用 `@Slf4j` | Pojo 仅承载数据，不承担日志职责 |
 
-## 链式访问器规则
+## 五、链式访问器规则
 
 - 默认规则：只要 Pojo 类需要 Lombok 生成 setter/getter（典型如 BO/DO/DTO/VO/Req/Resp/Param），默认加 `@Accessors(chain = true)`。
 - 搭配建议：若使用 `@Data`、`@Getter/@Setter` 生成访问器，优先同时声明 `@Accessors(chain = true)`，保持风格一致。
 - 非对象类：`@Service`、`@Controller`、`@Repository` 等组件类通常不需要 `@Accessors(chain = true)`。
 
-## `@Slf4j` 使用规则
+## 六、`@Slf4j` 使用规则
 
 - 适用范围：默认用于 Spring 业务组件类，如 `@Controller`、`@Service`、`@Repository`、消息监听器、任务处理器等。
 - 不适用范围：默认不用于 Pojo 类（BO/DO/DTO/VO/Req/Resp/Param），避免数据对象承担日志职责。
 - 使用目的：记录业务链路、关键状态、异常堆栈、外部依赖调用结果。
 - 审查原则：如果一个类仅包含字段和访问器（数据承载），移除 `@Slf4j`；如果负责业务流程或集成逻辑，可保留或新增 `@Slf4j`。
 
-### `@Slf4j` 推荐示例（业务组件）
+### 1、`@Slf4j` 推荐示例（业务组件）
 
 ```java
 @Slf4j
@@ -77,7 +77,7 @@ public class OrderService {
 }
 ```
 
-### `@Slf4j` 反例（Pojo）
+### 2、`@Slf4j` 反例（Pojo）
 
 ```java
 @Data
@@ -88,9 +88,9 @@ public class UserDTO {
 }
 ```
 
-## 组件注入规范
+## 七、组件注入规范
 
-### 推荐模式
+### 1、推荐模式
 
 ```java
 @Service
@@ -101,7 +101,7 @@ public class DemoService {
 }
 ```
 
-### 需要避免
+### 2、需要避免
 
 ```java
 @Service
@@ -112,13 +112,13 @@ public class DemoService {
 }
 ```
 
-## 例外与边界
+## 八、例外与边界
 
 - 当依赖字段不是 `final`（例如确有延迟设置需求）时，可临时保留非构造器注入，但要说明原因。
 - 当同一接口存在多个实现且需按名称注入时，优先在构造器参数或字段上搭配 `@Qualifier`，不要回退到字段注入。
 - 测试类中可视情况使用 `@Autowired`，但生产代码默认执行构造器注入策略。
 
-### 多实现注入示例（`@Qualifier` + 构造器注入）
+### 1、多实现注入示例（`@Qualifier` + 构造器注入）
 
 ```java
 @Service
@@ -132,9 +132,9 @@ public class QualifierWireService {
 }
 ```
 
-## 通用示例（与具体项目无关）
+## 九、通用示例（与具体项目无关）
 
-### DO 示例
+### 1、DO 示例
 
 ```java
 @Data
@@ -146,7 +146,7 @@ public class UserDO {
 }
 ```
 
-### DTO 示例
+### 2、DTO 示例
 
 ```java
 @Data
@@ -159,7 +159,7 @@ public class UserCreateDTO {
 }
 ```
 
-### 请求对象示例
+### 3、请求对象示例
 
 ```java
 @Data
@@ -171,7 +171,7 @@ public class UserQueryReq {
 }
 ```
 
-## 使用此 Skill 时的输出要求
+## 十、使用此 Skill 时的输出要求
 
 每次输出建议时，使用以下结构：
 
@@ -181,7 +181,7 @@ public class UserQueryReq {
 4. 改造结果：提供最小改动代码片段。
 5. 风险提示：序列化、框架反射、测试注入等注意事项。
 
-## JavaDoc 约定
+## 十一、JavaDoc 约定
 
 如果在改造中新增或修改 `/** */` 注释（类注释、成员变量注释、方法注释），遵循以下格式：
 
