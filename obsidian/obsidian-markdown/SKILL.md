@@ -93,6 +93,8 @@ keywords:
 
 属性中的 `date` 和 `updated` 格式为 `YYYY-MM-DD HH:MM:SS`，要包括年月日时分秒。
 
+如果无法获取当前具体时间（只能得到日期），请不要把时间补成 `00:00:00`。请使用命令获取格式化后的日期和时间。具体请参考：[PROPERTIES.md](references/PROPERTIES.md)。
+
 ## 后置内容
 
 ```markdown

@@ -64,5 +64,21 @@ tags:
 
 ### `date` 和 `updated` 时间
 
-属性中的 `date` 和 `updated` 为笔记的创建日期和更新日期。创建了笔记之后 `date` 就不再改变，而 `updated` 会根据文件的修改时间更新。格式为 `YYYY-MM-DD HH:MM:SS`，要包括年月日时分秒。
+属性中的 `date` 和 `updated` 为笔记的创建日期和更新日期。创建了笔记之后 `date` 就不再改变，而 `updated` 会根据文件的修改时间更新。
+
+格式使用 `YYYY-MM-DD HH:MM:SS`（包括年月日时分秒）。
+
+如果你的“生成笔记”的工具或流程无法获取当前的具体时间（只能得到日期），请不要把时间硬补成 `00:00:00`。
+
+可以用命令行在生成阶段获取当前时间字符串，再写入 frontmatter，请根据系统选择合适的命令：
+
+```bash
+date "+%Y-%m-%d %H:%M:%S"
+```
+
+下面这个命令使用于 Windows：
+
+```powershell
+Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+```
 
