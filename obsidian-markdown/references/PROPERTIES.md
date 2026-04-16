@@ -68,15 +68,15 @@ tags:
 
 格式使用 `YYYY-MM-DD HH:MM:SS`（包括年月日时分秒）。
 
-如果无法获取当前具体时间（只能得到日期），请不要把时间补成 `00:00:00`。
+如果无法获取当前具体时间（只能得到日期），可以用命令行在生成阶段获取当前时间字符串，再写入 frontmatter，请根据系统选择合适的命令：
 
-可以用命令行在生成阶段获取当前时间字符串，再写入 frontmatter，请根据系统选择合适的命令：
+适用于 Linux 和 macOS 系统：
 
 ```bash
 date "+%Y-%m-%d %H:%M:%S"
 ```
 
-下面这个命令使用于 Windows：
+适用于 Windows 系统：
 
 ```powershell
 Get-Date -Format "yyyy-MM-dd HH:mm:ss"
