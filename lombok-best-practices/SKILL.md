@@ -1,25 +1,25 @@
 ---
 name: lombok-best-practices
-description: "Java / Spring Boot 项目的 Lombok 规范化实践。用户提到 Lombok、`@Data`、`@NoArgsConstructor`、`@AllArgsConstructor`、`@Accessors(chain = true)`、`@Slf4j`，或提出用 `@RequiredArgsConstructor` 替代 `@Autowired` 时，必须启用本 skill。即使用户未显式提及 Lombok，只要在 pom.xml 中识别到 Lombok 依赖，且任务涉及创建/修改 BO/DO/DTO/VO/Req/Resp/Param 等 Pojo 类，也应主动启用。适用于新建类、代码生成、重构、代码评审与批量规范化。"
+description: "Java 和 Spring Boot 项目的 Lombok 规范化实践。只要任务涉及使用 Lombok 的场景（例如 POM 中出现 Lombok 依赖、使用/新增/替换 Lombok 注解，或需要统一 Pojo 的访问器/构造器风格、Spring 中组件的构造器注入等），即使用户未显式提到 Lombok，也应主动启用本 skill。适用于新建类、代码生成、重构、代码评审与批量规范化。"
 ---
 
 # Lombok Best Practices
 
 ## 一、Skill 目标
 
-在 Java / Spring Boot 项目中统一 Lombok 使用方式，重点覆盖：
+在 Java 和 Spring Boot 项目中统一 Lombok 使用方式，重点覆盖：
 
 - 数据模型类：BO/DO/DTO/VO/Req/Resp/Param 等 Pojo 类
-- 组件类：Controller/Service/DAO/Listener
+- Spring 组件类：Controller/Service/DAO/Listener 等组件类
 - 注入方式：优先构造器注入（`@RequiredArgsConstructor` + `final` 字段）
 - 对象风格：涉及 getter/setter 的对象默认使用 `@Accessors(chain = true)`，采用链式调用
 - 评审方式：发现并替换低可维护性的字段注入 `@Autowired`
 
 ## 二、自动触发规则
 
-- 显式触发：用户明确提到 Lombok、`@Data`、`@NoArgsConstructor`、`@AllArgsConstructor`、`@RequiredArgsConstructor`、`@Autowired` 迁移。
-- 隐式触发：用户要求生成功能代码，即使未提及 Lombok，只要 `pom.xml` 中存在 Lombok 依赖，且任务包含创建或修改 BO/DO/DTO/VO/Req/Resp/Param 等 Pojo 类，就应主动应用本 skill。
-- 优先动作：在开始生成对象代码前，先检查 `pom.xml` 是否包含 Lombok 依赖，再决定对象注解和注入方式。
+- 显式触发：用户明确提到 Lombok，或提到/要求使用、替换、对齐 Lombok 相关注解与实践（如 `@Data`、`@Getter/@Setter`、`@NoArgsConstructor`、`@AllArgsConstructor`、`@RequiredArgsConstructor`、`@Accessors(chain = true)`、`@Slf4j`、`@Autowired` 迁移等）。
+- 隐式触发：用户未提及 Lombok，但任务涉及 Java/Spring 的类生成或改造，并满足任一条件即主动启用：构建文件（`pom.xml` / `build.gradle` / `build.gradle.kts`）存在 Lombok 依赖；现有代码中已使用 Lombok 注解；任务目标包含统一 Pojo 访问器/构造器风格、批量规范化 Pojo、或将 Spring 组件改为构造器注入。
+- 优先动作：先基于构建文件与现有代码用法判断“项目是否采用 Lombok”，再按注解矩阵输出最小改动方案；若项目未使用 Lombok，则避免引入 Lombok 风格改造并给出不使用 Lombok 的替代建议。
 
 ## 三、执行步骤
 
