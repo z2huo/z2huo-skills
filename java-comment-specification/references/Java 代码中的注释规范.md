@@ -1,11 +1,11 @@
 ---
 date: 2026-03-31 11:07:43
-updated: 2026-04-13 22:13:46
+updated: 2026-04-21 10:22:11
 ---
 
 # Java 代码中的注释规范
 
-## 一、成员变量注释、类注释、方法注释的规则
+## 一、成员变量注释、类注释、方法注释类型规则
 
 ### 1、场景
 
@@ -74,7 +74,7 @@ updated: 2026-04-13 22:13:46
 /**
  * <p>
  * 
- * @author  z2huo
+ * @author z2huo
  */
 ```
 
@@ -82,3 +82,36 @@ updated: 2026-04-13 22:13:46
 
 - `@author`，作者信息，值为 `z2huo`
 
+## 三、注释内容
+
+### 1、行末句号
+
+注释内容如果只有一行的话，后面不要加句号。
+
+正例：
+
+```
+/**  
+ * <p>名称
+ */  
+private String name;
+
+/**  
+ * <p>Amount, in cents
+ */  
+private Long amountInCents;
+```
+
+反例：
+
+```
+/**  
+ * <p>载荷名称。
+ */  
+private String name;
+
+/**  
+ * <p>Amount, in cents.
+ */  
+private Long amountInCents;
+```
