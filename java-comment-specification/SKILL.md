@@ -1,6 +1,6 @@
 ---
 name: java-comment-specification
-description: Java 代码注释（Javadoc）规范技能。只要用户要求你生成/修改/补齐 Java 成员变量注释、类注释、方法注释（即需要使用 `/** */` 的场景），或你正在为新生成的 Java 代码补充/生成对应的 Javadoc 注释，或用户提到「Java 注释规范」「Javadoc 规范」「成员变量/类/方法注释怎么写」「按规范补齐注释」等诉求，就必须启用本 skill。核心要求：每个段落前使用 `<p>` 标签，列表用 `<pre></pre>` 包裹；生成的 Java 类注释块标签必须包含 `@author z2huo`。
+description: Java 代码注释（Javadoc）规范技能。在编写 Java 代码时请尽量将类中的注释添加完备。另外，当用户要求你生成/修改/补齐 Java 成员变量注释、类注释、方法注释（即需要使用 `/** */` 的场景），或你正在为新生成的 Java 代码补充/生成对应的 Javadoc 注释，或用户提到「Java 注释规范」「Javadoc 规范」「成员变量/类/方法注释怎么写」「按规范补齐注释」等诉求，就必须启用本 skill。核心要求：每个段落前使用 `<p>` 标签，列表用 `<pre></pre>` 包裹；生成的 Java 类注释块标签必须包含 `@author z2huo`。
 ---
 
 # Java 代码中的注释规范

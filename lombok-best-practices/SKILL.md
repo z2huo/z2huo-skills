@@ -1,6 +1,6 @@
 ---
 name: lombok-best-practices
-description: "Java 和 Spring Boot 项目的 Lombok 规范化实践。只要任务涉及使用 Lombok 的场景（例如 POM 中出现 Lombok 依赖、使用/新增/替换 Lombok 注解，或需要统一 Pojo 的访问器/构造器风格、Spring 中组件的构造器注入等），即使用户未显式提到 Lombok，也应主动启用本 skill。适用于新建类、代码生成、重构、代码评审与批量规范化。"
+description: "Java 和 Spring Boot 项目的 Lombok 规范化实践。只要任务涉及使用 Lombok 的场景就请遵守此规范，即使用户未显式提到 Lombok。例如 POM 中出现 Lombok 依赖、使用/新增/替换 Lombok 注解，或需要统一 Pojo 的访问器/构造器风格、Spring 中组件的构造器注入等。适用于新建类、代码生成、重构、代码评审与批量规范化。"
 ---
 
 # Lombok Best Practices
