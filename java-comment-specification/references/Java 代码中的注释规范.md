@@ -1,6 +1,6 @@
 ---
 date: 2026-03-31 11:07:43
-updated: 2026-04-21 10:22:11
+updated: 2026-04-27 21:25:41
 ---
 
 # Java 代码中的注释规范
@@ -41,13 +41,13 @@ updated: 2026-04-21 10:22:11
 
 ### 2、规则描述
 
-在成员变量注释、类注释和方法注释上，每一个段落前请使用 `<p>` 标签，另外如果注释中有无序列表或有序列表，请使用 `<pre></pre>` 标签。
+在成员变量注释、类注释和方法注释上，每一个段落前请使用 `<p>` 标签（除了第一个段落），另外如果注释中有无序列表或有序列表，请使用 `<pre></pre>` 标签。
 
 ### 3、规则示例
 
 ```java
 /**
- * <p>段落一
+ * 段落一
  *
  * <p>段落二
  *
@@ -68,11 +68,15 @@ updated: 2026-04-21 10:22:11
  */
 ```
 
+**注意**：上面的“段落一”，因为是第一个段落，所以不需要使用 `<p>` 标签起始。
+
 ## 二、块标签
 
 ```java
 /**
- * <p>
+ * 段落一
+ *
+ * <p>段落二
  * 
  * @author z2huo
  */
@@ -86,18 +90,32 @@ updated: 2026-04-21 10:22:11
 
 ### 1、行末句号
 
-注释内容如果只有一行的话，后面不要加句号。
+注释内容的第一行不要加句号，尤其是当注释内容只有一行的情况下。后面的段落可以加句号。
 
 正例：
 
 ```
 /**  
- * <p>名称
+ * 名称
  */  
 private String name;
 
 /**  
- * <p>Amount, in cents
+ * 名称
+ *
+ * <p>详细描述。
+ */  
+private String name;
+
+/**  
+ * Amount, in cents
+ */  
+private Long amountInCents;
+
+/**  
+ * Amount, in cents
+ *
+ * <p>detail.
  */  
 private Long amountInCents;
 ```
@@ -106,12 +124,12 @@ private Long amountInCents;
 
 ```
 /**  
- * <p>载荷名称。
+ * 名称。
  */  
 private String name;
 
 /**  
- * <p>Amount, in cents.
+ * Amount, in cents.
  */  
 private Long amountInCents;
 ```
