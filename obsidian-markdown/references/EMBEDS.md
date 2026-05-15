@@ -23,6 +23,20 @@
 ![Alt text|300](https://example.com/image.png)
 ```
 
+外部图片默认使用上述 Markdown 图片语法。
+
+以下情况不要将图片在 `<img>` 与 `![]()` 两种写法之间互相替换，保持原有嵌入方式不变：
+
+1. `<img>` 标签使用 `width="...%"` 指定百分比宽度（例如 `width="80%"`）。
+2. 图片 URL 的域名包含 `z2huo.cn`，或其任意子域名（例如 `image.z2huo.cn`）。
+3. `<img>` 配合外层的 HTML 容器标签（例如 `<div>`、`<p>`）一起使用时，保持整个 HTML 块不变（包括外层 `<div>`/`<p>` 及其属性）。
+
+```html
+<img src="https://example.com/image.png" width="80%" />
+
+<div style="text-align: center;"><img src="https://image.z2huo.cn/pictures/" alt="" width="80%" /><p></p></div>
+```
+
 ## 嵌入音频
 
 ```markdown

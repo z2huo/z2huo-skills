@@ -57,6 +57,8 @@ description: 使用 Obsidian 特定语法创建和编辑 Obsidian 风格的 Mark
 
 音频、视频、搜索嵌入和外部图片请参阅 [EMBEDS.md](references/EMBEDS.md)。
 
+外部图片默认使用 `![]()` 语法。如果原文使用 `<img>` 且不丢失语义，可以规范为 `![]()`；但以下情况保持原有嵌入方式不变：`<img>` 带 `width="...%"` 的百分比宽度，或图片 URL 域名包含 `z2huo.cn`（含子域名）。当 `<img>` 与外层 `<div>`、`<p>` 等 HTML 标签配合使用时，保持整个 HTML 块不变，不改动外层标签与属性。
+
 ## 提示框
 
 ```markdown
