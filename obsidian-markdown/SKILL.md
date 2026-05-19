@@ -19,6 +19,42 @@ description: 使用 Obsidian 特定语法创建和编辑 Obsidian 风格的 Mark
 
 > 在选择 wikilinks 和 Markdown 链接时：对于仓库内的笔记使用 `[[wikilinks]]`（Obsidian 会自动跟踪重命名），外部 URL 仅使用 `[text](url)`。
 
+## 列表
+
+无序列表使用 `-` 符号（不要使用 `*`）：
+
+```markdown
+- 第一项
+- 第二项
+- 第三项
+```
+
+嵌套无序列表通过缩进实现（4 个空格）：
+
+```markdown
+- 第一项
+    - 子项 A
+    - 子项 B
+- 第二项
+```
+
+有序列表使用数字加点：
+
+```markdown
+1. 第一步
+2. 第二步
+3. 第三步
+```
+
+嵌套有序列表通过缩进实现（4 个空格）：
+
+```markdown
+1. 第一步
+    1. 子步骤 A
+    2. 子步骤 B
+2. 第二步
+```
+
 ## 内部链接（Wikilinks）
 
 ```markdown
