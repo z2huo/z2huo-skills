@@ -10,6 +10,7 @@
 | --- | --- |
 | [defuddle](defuddle/SKILL.md) | 从网页中提取干净的 Markdown 内容 |
 | [java-comment-specification](java-comment-specification/SKILL.md) | Java 代码注释（Javadoc）规范 |
+| [java-source-code-reading](java-source-code-reading/SKILL.md) | 阅读 Java 源码并生成中文 Markdown 文档 |
 | [json-canvas](json-canvas/SKILL.md) | 创建和编辑 JSON Canvas 文件 |
 | [lombok-best-practices](lombok-best-practices/SKILL.md) | Java / Spring Boot 项目 Lombok 规范化实践 |
 | [markdown-generate-format](markdown-generate-format/SKILL.md) | Markdown 文档格式规范 |
@@ -22,9 +23,15 @@
 
 ```
 z2huo-skills/
+├── .docs/                          # 文档资源
+│   ├── Java 代码中的注释规范.md
+│   └── 生成 Markdown 文件格式规范.md
 ├── defuddle/                     # 网页内容提取工具
 │   └── SKILL.md
 ├── java-comment-specification/    # Java 代码注释规范
+│   ├── references/
+│   └── SKILL.md
+├── java-source-code-reading/      # Java 源码阅读与文档生成
 │   ├── references/
 │   └── SKILL.md
 ├── json-canvas/                  # JSON Canvas 文件
@@ -50,7 +57,6 @@ z2huo-skills/
 │   ├── scripts/
 │   └── SKILL.md
 ├── release/                       # 打包发布的 skill 文件
-├── docs/                          # 文档资源
 └── README.md
 ```
 
@@ -62,7 +68,7 @@ z2huo-skills/
 
 ### Anthropic Skills
 
-Skills 来源自 [Anthropic Skills | Github](https://github.com/anthropics/skills) 项目，在使用过程中发现有些需要更待的地方，所以这里使用到的 Skills 进行了一些修改。
+Skills 来源自 [Anthropic Skills | Github](https://github.com/anthropics/skills) 项目，在使用过程中发现有些需要调整的地方，所以这里对使用到的 Skills 进行了一些修改。
 
 包括：
 
