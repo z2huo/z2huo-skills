@@ -147,6 +147,12 @@ Get-Date -Format "yyyy-MM-dd HH:mm:ss"
 
 ## 后置内容
 
+后置内容包含 3 个二级标题，分别放置以下内容：
+
+- `相关链接`：放置该文章的外部参考链接，例如博客文章、Github 仓库、Stack Overflow、官方文档等 URL。
+- `OB links`：放置该文章与当前 Obsidian 仓库中其他笔记的内部链接，使用 `[[Note]]` 语法。
+- `OB tags`：放置该文章的标签，例如 `#java`、`#jdk`。
+
 ```markdown
 ## 相关链接
 
